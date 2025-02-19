@@ -110,3 +110,13 @@
     @apply text-[32px] leading-[44px] font-semibold;
   }
 }
+
+
+.txt-small-plus, .font-sas, .font-normal {
+  font-family: var(--font-cairo);
+}
+
+
+.text-large-semi, .txt-ui-fg-base {
+  @apply text-primary-500
+}

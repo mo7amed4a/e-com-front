@@ -21,30 +21,29 @@ const Register = ({ setCurrentView }: Props) => {
       data-testid="register-page"
     >
       <h1 className="text-large-semi uppercase mb-6">
-        Become a Webbing Store Member
+كن عضوًا في متجرنا
       </h1>
       <p className="text-center text-base-regular text-ui-fg-base mb-4">
-        Create your Webbing Store Member profile, and get access to an enhanced
-        shopping experience.
+      قم بإنشاء ملف تعريف عضو في متجرنا ، واحصل على تجربة تسوق محسنة.
       </p>
       <form className="w-full flex flex-col" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">
           <Input
-            label="First name"
+            label="الاسم الاول"
             name="first_name"
             required
             autoComplete="given-name"
             data-testid="first-name-input"
           />
           <Input
-            label="Last name"
+            label="الايم الاخير"
             name="last_name"
             required
             autoComplete="family-name"
             data-testid="last-name-input"
           />
           <Input
-            label="Email"
+            label="البريد الالكتروني"
             name="email"
             required
             type="email"
@@ -52,14 +51,14 @@ const Register = ({ setCurrentView }: Props) => {
             data-testid="email-input"
           />
           <Input
-            label="Phone"
+            label="رقم الهاتف"
             name="phone"
             type="tel"
             autoComplete="tel"
             data-testid="phone-input"
           />
           <Input
-            label="Password"
+            label="كلمة المرور"
             name="password"
             required
             type="password"
@@ -69,33 +68,33 @@ const Register = ({ setCurrentView }: Props) => {
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
         <span className="text-center text-ui-fg-base text-small-regular mt-6">
-          By creating an account, you agree to Webbing Store&apos;s{" "}
+        من خلال إنشاء حساب، فإنك توافق على {" "}
           <LocalizedClientLink
             href="/content/privacy-policy"
             className="underline"
           >
-            Privacy Policy
+            سياسة الخصوصية
           </LocalizedClientLink>{" "}
-          and{" "}
+          و{" "}
           <LocalizedClientLink
             href="/content/terms-of-use"
             className="underline"
           >
-            Terms of Use
+            شروط الاستخدام
           </LocalizedClientLink>
           .
         </span>
         <SubmitButton className="w-full mt-6" data-testid="register-button">
-          Join
+          تسجيل حساب
         </SubmitButton>
       </form>
       <span className="text-center text-ui-fg-base text-small-regular mt-6">
-        Already a member?{" "}
+        لديك حساب بالفعل {" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
           className="underline"
         >
-          Sign in
+          سجل الدخول
         </button>
         .
       </span>

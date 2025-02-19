@@ -60,16 +60,17 @@ module.exports = {
         "3xl": "2rem",
       },
       fontFamily: {
-        sans: [
-          "Inter",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Ubuntu",
-          "sans-serif",
-        ],
+        // sans: [
+        //   "Inter",
+        //   "-apple-system",
+        //   "BlinkMacSystemFont",
+        //   "Segoe UI",
+        //   "Roboto",
+        //   "Helvetica Neue",
+        //   "Ubuntu",
+        //   "sans-serif",
+        // ],
+        cairo: "var(--font-cairo)"
       },
       keyframes: {
         ring: {
