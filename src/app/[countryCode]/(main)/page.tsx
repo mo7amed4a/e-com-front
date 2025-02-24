@@ -35,7 +35,7 @@ export default async function Home(props: {
     <>
       <Hero />
       <div className="py-12">
-        <CategoriesSection productCategories={productCategories} />
+        <CategoriesSection productCategories={productCategories} region={region} />
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
         </ul>
