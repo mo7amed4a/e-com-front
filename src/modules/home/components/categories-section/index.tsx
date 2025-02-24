@@ -1,19 +1,18 @@
-import { listCategories } from "@lib/data/categories"
-import { listProducts } from "@lib/data/products"
+
+"use client"
 import { HttpTypes } from "@medusajs/types"
 import { clx, Text } from "@medusajs/ui"
-
-import InteractiveLink from "@modules/common/components/interactive-link"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import ProductPreview from "@modules/products/components/product-preview"
 
-export default async function CategoriesSection({
-  region,
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay } from "swiper/modules"
+import "swiper/css"
+
+export default function CategoriesSection({
+  productCategories,
 }: {
-  region: HttpTypes.StoreRegion
+  productCategories: HttpTypes.StoreProductCategory[]
 }) {
-  
-  const productCategories = await listCategories()
 
   if (!productCategories) {
     return null
@@ -22,36 +21,39 @@ export default async function CategoriesSection({
   return (
     <div className="content-container py-12 small:py-24">
       <div className="flex justify-between mb-8">
-        {/* <Text className="txt-xlarge">{collection.title}</Text>
-        <InteractiveLink href={`/collections/${collection.handle}`}>
-          View all
-        </InteractiveLink> */}
+        <Text className="txt-xlarge">الفئات</Text>
       </div>
-      <ul className="flex gap-5 justify-between">
-      {productCategories?.slice(0, 6).map((c) => {
-                    if (c.parent_category) {
-                      return
-                    }
-                    return (
-                      <li
-                        className="flex items-center justify-center gap-2 text-primary-50 text-xs text-center bg-primary-500 rounded-full size-auto h-32 aspect-square"
-                        key={c.id}
-                      >
-                        <LocalizedClientLink
-                          className={clx(
-                            "hover:text-ui-fg-base",
-                          )}
-                          href={`/categories/${c.handle}`}
-                          data-testid="category-link"
-                        >
-                          {c.name}dn
-                          {JSON.stringify(c.category_children[0])}
-                        </LocalizedClientLink>
-                      </li>
-                    )
-                  })}
-      </ul>
-      
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={15}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        breakpoints={{
+          300: { slidesPerView: 2 }, // الموبايل
+          600: { slidesPerView: 3 }, // الموبايل
+          900: { slidesPerView: 4 }, // الموبايل
+          1024: { slidesPerView: 5 }, // الديسكتوب
+        }}
+      >
+        {productCategories?.slice(0, 6).map((c) => {
+          if (c.parent_category) {
+            return null
+          }
+          return (
+         
+            <SwiperSlide key={c.id} className="!flex !justify-center">
+              <LocalizedClientLink
+                className={clx(
+                  "flex flex-col items-center justify-center gap-2",
+                  "text-primary-50 text-xs text-center",
+                  "bg-primary-500 rounded-full h-32 aspect-square"
+                )}
+                href={`/categories/${c.handle}`}
+              >
+                {c.name}
+              </LocalizedClientLink>
+            </SwiperSlide>          )
+        })}
+      </Swiper>
     </div>
   )
 }

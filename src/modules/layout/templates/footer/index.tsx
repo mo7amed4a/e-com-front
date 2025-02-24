@@ -12,13 +12,13 @@ export default async function Footer() {
   const productCategories = await listCategories()
 
   return (
-    <footer className="border-t border-ui-border-base w-full">
+    <footer className="border-t border-ui-border-base w-full bg-primary-700 py-10">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
+        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between">
           <div>
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="txt-compact-xlarge-plus text-ui-fg-on-inverted"
             >
               Webbing Store
             </LocalizedClientLink>
@@ -26,7 +26,7 @@ export default async function Footer() {
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
             {productCategories && productCategories?.length > 0 && (
               <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
+                <span className="txt-small-plus text-ui-fg-on-color">
                   التصنيفات
                 </span>
                 <ul
@@ -52,7 +52,7 @@ export default async function Footer() {
                       >
                         <LocalizedClientLink
                           className={clx(
-                            "hover:text-ui-fg-base",
+                            "text-white/90 hover:text-white",
                             children && "txt-small-plus"
                           )}
                           href={`/categories/${c.handle}`}
@@ -84,7 +84,7 @@ export default async function Footer() {
             )}
             {collections && collections.length > 0 && (
               <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
+                <span className="txt-small-plus text-ui-fg-on-color">
                   المجموعات
                 </span>
                 <ul
@@ -98,7 +98,7 @@ export default async function Footer() {
                   {collections?.slice(0, 6).map((c) => (
                     <li key={c.id}>
                       <LocalizedClientLink
-                        className="hover:text-ui-fg-base"
+                        className="text-white/90"
                         href={`/collections/${c.handle}`}
                       >
                         {c.title}
@@ -108,7 +108,7 @@ export default async function Footer() {
                 </ul>
               </div>
             )}
-            <div className="flex flex-col gap-y-2">
+            {/* <div className="flex flex-col gap-y-2">
               <span className="txt-small-plus txt-ui-fg-base">بعض اللينكات</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
@@ -142,14 +142,13 @@ export default async function Footer() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
+        <div className="flex w-full justify-center text-ui-fg-on-inverted">
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} Webbing Store. All rights reserved.
           </Text>
-          <MedusaCTA />
         </div>
       </div>
     </footer>
