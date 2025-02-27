@@ -16,23 +16,23 @@ export interface Slide {
   description?: string;
 }
 
-const slidesData:Slide[] = [
+const slidesData: Slide[] = [
   {
     image: "https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title1: "title one",
-    title2: "description one",
+    title1: "اكتشف عالم التسوق الفريد",
+    title2: "أفضل المنتجات بأفضل الأسعار، تسوق الآن وتمتع بتجربة لا مثيل لها!",
   },
   {
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title1: "title two",
-    title2: "description two",
+    title1: "عروض لا تُقاوَم",
+    title2: "خصومات تصل إلى 50% على أحدث المنتجات، اغتنم الفرصة قبل نفاد الكمية!",
   },
   {
     image: "https://images.unsplash.com/photo-1592503254549-d83d24a4dfab?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title1: "title three",
-    title2: "description three",
+    title1: "تسوق بسهولة وأمان",
+    title2: "منتجات عالية الجودة، طرق دفع آمنة، وشحن سريع إلى باب منزلك!",
   },
-]
+];
 
 export default function Hero({ slides=slidesData, align}: { slides?: Slide[], align?: "center" | "start" | "end" }) {
   return (
@@ -58,7 +58,7 @@ export default function Hero({ slides=slidesData, align}: { slides?: Slide[], al
               <div className="absolute inset-0 bg-black opacity-50" />
             </div>
             <div className={`relative z-10 flex flex-col justify-center items-center h-full md:space-y-5 container mx-auto text-center`}>
-              <h1 className={`text-3xl md:text-5xl font-bold leading-tight mb-4 flex flex-col ${align === "center" || slide?.color && "!flex-row-reverse gap-x-2"}`}>
+              <h1 className={`text-3xl md:text-5xl gap-4 font-bold leading-tight mb-4 flex flex-col ${align === "center" || slide?.color && "!flex-row-reverse gap-x-2"}`}>
                 <span className="text-[f2f2f2]" style={{ color: slide?.color }}>{slide.title1}</span>
                 {slide.title2 && <span className="text-[f2f2f2] text-3xl">{slide.title2}</span>}
               </h1>
